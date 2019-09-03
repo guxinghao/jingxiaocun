@@ -59,7 +59,7 @@ class PledgeController extends AdminBaseController
 				'backUrl'=>$backUrl,
 		));
 	}
-	
+
 	/*
 	 * 创建赎回
 	 */
@@ -86,7 +86,7 @@ class PledgeController extends AdminBaseController
 		$param=array('tpcompanys'=>$tpcompany,'titles'=>$com_array,'users'=>$user_array);
 		$this->render($view,$param);
 	}
-	
+
 	/*
 	 * 更新赎回
 	 */
@@ -122,8 +122,8 @@ class PledgeController extends AdminBaseController
 		$param=array('tpcompanys'=>$tpcompany,'titles'=>$com_array,'users'=>$user_array,'baseform'=>$baseform,'frmPledge'=>$frmPledge,'purchase'=>$purchase);
 		$this->render($view,$param);
 	}
-	
-	
+
+
 	/*
 	 * 提交与取消提交
 	 */
@@ -163,7 +163,7 @@ class PledgeController extends AdminBaseController
 			}
 		}
 	}
-	
+
 	/*
 	 * 作废表单
 	 */
@@ -187,8 +187,8 @@ class PledgeController extends AdminBaseController
 			echo 1;
 		}
 	}
-	
-	
+
+
 	/*
 	 * 审核相关
 	 */
@@ -228,10 +228,10 @@ class PledgeController extends AdminBaseController
 			}
 		}
 	}
-	
+
 	public function actionHaveOut($id)
 	{
-		$model=FrmPledgeRedeem::model()->with('pledgeInfo')->findByPk($id);		
+		$model=FrmPledgeRedeem::model()->with('pledgeInfo')->findByPk($id);
 		$pledgeInfo=$model->pledgeInfo;
 		if($pledgeInfo->r_limit==1)
 		{
@@ -252,8 +252,8 @@ class PledgeController extends AdminBaseController
 			}
 		}
 	}
-	
-	
+
+
 	/*************************/
 	/*
 	 * 托盘查询
@@ -282,7 +282,7 @@ class PledgeController extends AdminBaseController
 				$search['vendor']=$_REQUEST['company_id'];
 			}
 		}
-		
+
 		list($tableHeader,$tableData,$pages,$totalData)=FrmPledgeRedeem::getTpcgList($search);
 		$this->render('tpcgList',array(
 				'tableHeader'=>$tableHeader,
@@ -297,7 +297,7 @@ class PledgeController extends AdminBaseController
 				'products'=>$products_array,
 		));
 	}
-	
+
 	/*
 	 * 查看采购明细赎回
 	 */
@@ -311,8 +311,8 @@ class PledgeController extends AdminBaseController
 				'tableData'=>$tableData,
 		));
 	}
-	
-	
+
+
 	/*
 	 * 托盘汇总
 	 */
@@ -321,16 +321,17 @@ class PledgeController extends AdminBaseController
 		$this->pageTitle = "托盘汇总";
 		$coms=DictTitle::getComs('json');//下拉菜单数据
 		$vendor_array=DictCompany::getVendorList('json','is_pledge');//供应商
-		
+
 		//搜索
 		$search=array();
 		if(isset($_REQUEST['search']))
 		{
 			$search=$_REQUEST['search'];
 		}
+		var_dump(FrmPledgeRedeem::gatherData($search));die();
 		//获取表单列表
 		list($tableHeader,$tableData,$pages)=FrmPledgeRedeem::gatherData($search);
-		
+
 		$this->render('data',array(
 				'tableHeader'=>$tableHeader,
 				'tableData'=>$tableData,
@@ -340,7 +341,7 @@ class PledgeController extends AdminBaseController
 				'vendors'=>$vendor_array,
 		));
 	}
-	
-	
-	
+
+
+
 }
