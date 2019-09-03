@@ -30,12 +30,12 @@
 			<div class="logo">
 				<img src="<?php echo imgUrl('log.png');?>" />
 			</div>
-			<div class="log_tit">钢瑞进销存系统</div>
-			<?php if ($this->pageTitle && $this->pageTitle!="钢瑞进销存系统"){?><div class="pageTitle"><span>—</span><?php echo $this->pageTitle?></div><?php } ?>
+			<div class="log_tit">进销存系统</div>
+			<?php if ($this->pageTitle && $this->pageTitle!="进销存系统"){?><div class="pageTitle"><span>—</span><?php echo $this->pageTitle?></div><?php } ?>
 			<div class="user_quit">
 				<a href="<?php echo Yii::app()->createUrl('site/logout');?>">
 					<div class="user_quit_baby">
-						<img src="<?php echo imgUrl('quit.png');?>">退出 
+						<img src="<?php echo imgUrl('quit.png');?>">退出
 					</div>
 				</a>
 			</div>
@@ -85,7 +85,7 @@
 				<?php
 					$k ++;
 				}
-				?>		
+				?>
 				</ul>
 			<?php
 			for($i = 0; $i < count ( $all_menus ); $i ++) {
@@ -97,7 +97,7 @@
 				?>
 				<div class="second_bar second_bar_<?php echo $i+1;?>" style="z-index: 999;width:200px;background-color: #1f283a;">
 					<div class="second_bar_li">
-				<?php	
+				<?php
 					$j = 0;
 					$num = count($menus);
 					foreach ($menus as $val) {
@@ -116,7 +116,7 @@
 					?>
 					</div>
 					<div class="second_bar_li second" style="float: right;">
-				<?php	
+				<?php
 					$k = 0;
 					foreach ($menus as $val) {
 						$k++;
@@ -146,7 +146,7 @@
 				?>
 				<div class="second_bar second_bar_<?php echo $i+1;?>" style="z-index: 999;top:<?php echo $height;?>px">
 					<div class="second_bar_li">
-				<?php	
+				<?php
 				$j = 0;
 				foreach ( $menus as $val ) {
 					?>
@@ -162,12 +162,12 @@
 				?>
 					</div>
 				</div>
-				<?php	
+				<?php
 				}else{
 					?>
 				<div class="second_bar second_bar_<?php echo $i+1;?>" style="z-index: 999;">
 					<div class="second_bar_li">
-				<?php	
+				<?php
 				$j = 0;
 				$num = count ( $menus );
 				foreach ( $menus as $val ) {
@@ -187,7 +187,7 @@
 			<?php }
 			}
 			?>
-			
+
 		</div>
 			<div class="table_content">
 				<script>

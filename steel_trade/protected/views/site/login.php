@@ -10,7 +10,7 @@ $this->pageTitle="进销存登录";
 	<head>
 		<meta http-equiv=Content-Type content="text/html; charset=utf-8">
 		<meta http-equiv=Content-Language content=zh-CN>
-		<title>钢瑞进销存系统</title>
+		<title>进销存系统</title>
 		<link rel="stylesheet" href="/css/login.css" type="text/css">
 		<script src="/js/jquery-1.8.0.min.js" type="text/javascript"></script>
 		<style type="text/css">
@@ -25,7 +25,7 @@ $this->pageTitle="进销存登录";
 			<div class="register_head"></div>
 			<div class="register_bottom">
 				<div class="register_bottom_index">
-					
+
 		<?php
         $form = $this->beginWidget('CActiveForm', array(
             'id' => 'login_form',
@@ -46,7 +46,7 @@ $this->pageTitle="进销存登录";
 						<div class="register_bottom_username_logo"><img src="/images/username_logo.png" alt=""></div>
 						<div class="register_bottom_username_line"><img src="/images/line.png" alt=""></div>
 						<div class="register_bottom_username_input">
-					<?php 
+					<?php
 						echo $form->textField($model, 'username', array('style'=>"color:#333",'placeholder'=>'请输入用户名','class' => 'input_name', "id" => "username",'value'=>"$value")); ?>
 						</div>
 					</div>
@@ -67,7 +67,7 @@ $this->pageTitle="进销存登录";
 					<div class="register_bottom_forget" style="display:none;">
 						<a><label style="cursor:pointer;float:left;line-height:20px;height:23px">忘记密码&nbsp;</label></a>
 					</div>
-					
+
 					 <?php $this->endWidget(); ?>
 				</div>
 			</div>
@@ -78,16 +78,16 @@ $this->pageTitle="进销存登录";
 		<div id="ifram" style="display: none"></div>
 		<script>
 		$('#username').keyup(function(e){
-			
+
 			var pw = $('#username').val();
 		    if (e.which ==13)
 		    {
-			    
+
 		         $("#pwd_text").focus();
 		    }
 		});
 		$("#password").keyup(function(e){
-			
+
 		    if (e.which ==13)
 		    {
 		         $("form").submit();
@@ -99,17 +99,17 @@ $this->pageTitle="进销存登录";
 			var pass=$('#password').val();
 			var rm=$('#rm').attr('checked');
 			if(rm!=undefined)
-				rm='on';			
+				rm='on';
 			var url='<?php echo Yii::app()->params['parallel_url']?>'+'/index.php/site/login?username='+name+'&password='+pass+'&rm='+rm+'&is_another=yes';
 // 			var str='<iframe src="'+url+'"></iframe>';
 // 			$('#ifram').append(str);
 			$.getScript(url,function(){
 				$("form").submit();
-			})			
+			})
 		});
 		</script>
 	</body>
-</html>	
+</html>
 
 
 

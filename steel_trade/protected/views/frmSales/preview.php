@@ -16,12 +16,12 @@ body{color:black;font-family: "Open Sans","Microsoft YaHei",宋体,verdana,arial
 		<div class="logo">
 			<img src="<?php echo imgUrl('log.png');?>" />
 		</div>
-		<div class="log_tit">钢瑞进销存系统</div>
-		<?php if ($this->pageTitle && $this->pageTitle!="钢瑞进销存系统"){?><div class="pageTitle"><span>—</span><?php echo $this->pageTitle?></div><?php } ?>
+		<div class="log_tit">进销存系统</div>
+		<?php if ($this->pageTitle && $this->pageTitle!="进销存系统"){?><div class="pageTitle"><span>—</span><?php echo $this->pageTitle?></div><?php } ?>
 		<div class="user_quit">
 			<a href="<?php echo Yii::app()->createUrl('site/logout');?>">
 				<div class="user_quit_baby">
-					<img src="<?php echo imgUrl('quit.png');?>">退出 
+					<img src="<?php echo imgUrl('quit.png');?>">退出
 				</div>
 			</a>
 		</div>
@@ -94,10 +94,10 @@ body{color:black;font-family: "Open Sans","Microsoft YaHei",宋体,verdana,arial
 			</div>
 			<div id="someproduct" style="float:left;margin-top:33px;width:1020px;height:150px;">
 			<!-- 下面的这个div可以循环至多4次 -->
-			<?php 
+			<?php
 			$t_weight = 0;
 			$t_fee = 0;
-			for ($i = 0; $i < 4; $i++) { 
+			for ($i = 0; $i < 4; $i++) {
 				$detail = $details[$i];
 				$t_weight += $detail->weight;
 				$t_fee += $detail->fee;
@@ -111,12 +111,12 @@ body{color:black;font-family: "Open Sans","Microsoft YaHei",宋体,verdana,arial
 					</div>
 					<div class="productinfo" id="UnitWeight" style="width:86px;">
 						<span>
-						<?php 
+						<?php
 						$detail_data = array(
-							'product' => $detail->product_id, 
-							'texture' => $detail->texture_id, 
-							'rank' => $detail->rank_id, 
-							'brand' => $detail->brand_id, 
+							'product' => $detail->product_id,
+							'texture' => $detail->texture_id,
+							'rank' => $detail->rank_id,
+							'brand' => $detail->brand_id,
 							'length' => $detail->length
 						);
 						echo $detail ? number_format(DictGoods::getUnitWeight($detail_data), 3) : '';
@@ -167,7 +167,7 @@ body{color:black;font-family: "Open Sans","Microsoft YaHei",宋体,verdana,arial
 				</div>
 			</div>
 			<div style="float:left;margin:5px auto 0 100px;width:920px;height:25px;line-height:30px;">
-				<span><?php 
+				<span><?php
 							echo $model->warehouse->name;
 							if($model->warehouse->address){
 								echo ":".$model->warehouse->address;

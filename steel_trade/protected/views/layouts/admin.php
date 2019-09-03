@@ -4,7 +4,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="language" content="en" />
-<meta name="keywords" content="钢瑞进销存" />
+<meta name="keywords" content="进销存" />
 <link rel="icon" type="image/x-icon" href="/images/titleicon.ico"/>
 <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/admin.css" />
 <link href="<?php echo Yii::app()->request->baseUrl; ?>/zui/css/zui.min.css" rel="stylesheet" />
@@ -28,13 +28,14 @@
 <style>
 	.message_line{
 		line-height:30px;
-		font-size:14px;		
+		font-size:14px;
 		background:#fff;
 		min-width:98px;
 		clear:both;
 	}
 	.message_line_name{float:left;text-align:center;color:#000;width:45%;}
 	.message_line_num{float:left;text-align:left;min-width:30px;color:#fff;border-radius:15px;margin:6px 0 6px 3px;;line-height:18px;padding:0 4px;text-align:center;}
+	.second_bar_6{top:-41px!important;}
 </style>
 <?php
 	header("Cache-control: private");
@@ -50,13 +51,13 @@
 					<img src="<?php echo imgUrl('log.png');?>" />
 				</a>
 			</div>
-			<div class="log_tit">钢瑞进销存系统</div>
-			<?php if ($this->pageTitle && $this->pageTitle!="钢瑞进销存系统"){?><div class="pageTitle"><span>—</span><?php echo $this->pageTitle?></div><?php } ?>
+			<div class="log_tit">进销存系统</div>
+			<?php if ($this->pageTitle && $this->pageTitle!="进销存系统"){?><div class="pageTitle"><span>—</span><?php echo $this->pageTitle?></div><?php } ?>
 			<div style="float:left;color:red;line-height:42px;font-size:18px;margin-left:20px;cursor:pointer" class="banjuan">切至板卷系统</div>
 			<div class="user_quit">
 				<a href="<?php echo Yii::app()->createUrl('site/logout');?>">
 					<div class="user_quit_baby">
-						<img src="<?php echo imgUrl('quit.png');?>">退出 
+						<img src="<?php echo imgUrl('quit.png');?>">退出
 					</div>
 				</a>
 			</div>
@@ -65,7 +66,7 @@
 			     <span>消息</span>
 			     <?php $count=MessageContent::model()->getCount('all'); ?>
 			     <div class="msg_count" style="<?php if(!$count) echo 'display:none;';?>">
-			     	<?php if($count){echo $count;} ?>			     	
+			     	<?php if($count){echo $count;} ?>
 			     </div>
 			     <div class="message_b" style="position:absolute;top:42px;left:0px;line-height:40px;min-width:98px;display:none;z-index:1000;background:#fff;border: 1px solid #ccc;box-shadow: #ccc 3px 3px 3px;">
 			     		<div class="message_line" message_type="ware">
@@ -145,9 +146,9 @@
 				<?php
 					$k ++;
 				}
-				?>		
+				?>
 				</ul>
-			<?php 
+			<?php
 				for($i = 0; $i < count ( $all_menus ); $i ++) {
 					$menus = $all_menus [$i]->sub_menus;//二级菜单
 					$colum = count ( $menus );
@@ -159,11 +160,11 @@
 						for($j = 0; $j < $colum; $j ++) {
 				?>
 						<div class="second_bar_li" style="float:left;border: none;">
-				<?php 
+				<?php
 							if ($menus[$j]->name !="全部"){
 								$isall = 1;
 				?>
-						
+
 							<div title="<?php echo $menus[$j]->name;?>">
 									<div class="second_bar_list_title"><img class="list_arrow" src="/images/arrow.png"><?php echo $menus[$j]->name;?></div>
 							</div>
@@ -204,11 +205,11 @@
 				<?php }else{
 				?>
 					$(".bar_list_bd_<?php echo $i+1;?>").css("min-height",<?php echo $more*42?>+"px");
-				<?php 
+				<?php
 						}
 				 }else{?>
 					$(".second_bar_<?php echo $i+1;?>").css("padding-bottom",0);
-				<?php }?>	
+				<?php }?>
 				</script>
 				<?php } ?>
 			</div>
@@ -229,22 +230,22 @@
 	 $('.user').mouseout(function(){
 	 	$('.invit_code').hide();
 	 });
-	 var can_ask=true;	
-	 $('.message').mouseover(function(e){	
+	 var can_ask=true;
+	 $('.message').mouseover(function(e){
 		 e.stopPropagation();
 		 $('.message_b').show();
 		 if(can_ask)
-		 {			 
+		 {
 			 $.post("/index.php/messageCenter/getCount/",{},function(data){
-				   var json=eval('('+data+')');			   
+				   var json=eval('('+data+')');
 			        $(".lay_ware").html(json.ware);
 			        $(".lay_purchase").html(json.purchase);
 			        $(".lay_money").html(json.money);
-			        $(".lay_sale").html(json.sale);		        
+			        $(".lay_sale").html(json.sale);
 			    });
 			    can_ask=false;
 			    setTimeout(function(){can_ask = true;},3000);
-		 }		  
+		 }
 	})
 	$('.message').mouseout(function(){
 		 $('.message_b').hide();
@@ -258,13 +259,13 @@
 		$('.message_line').click(function(e){
 			e.preventDefault();
 			e.stopPropagation();
-			var type=$(this).attr('message_type');			
+			var type=$(this).attr('message_type');
 			window.location.href="/index.php/messageCenter/index?big_type="+type;
 		});
 	 	var controller='<?php echo Yii::app()->getController()->id;?>';
 	 	var url='<?php echo Yii::app()->request->url?>';
 	 	var parallel_url='<?php echo Yii::app()->params['parallel_url'];?>';
-		$('.banjuan').click(function(){			
+		$('.banjuan').click(function(){
 			window.location.href=parallel_url+url;
 		});
 	</script>
