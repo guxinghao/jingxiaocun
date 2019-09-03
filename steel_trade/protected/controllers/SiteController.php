@@ -131,12 +131,12 @@ class SiteController extends AdminBaseController
 				setcookie ( "username" );
 			}
 			if($model->validate() && $model->login()){
-				$api_center = new api_center();
-				$result = $api_center->loginAuthorization($model->username, $model->password);
-				$result = json_decode($result);
-				if ($result->result == 'error') {
-					$msg = $result->message;
-				} else {
+				//$api_center = new api_center();
+				//$result = $api_center->loginAuthorization($model->username, $model->password);
+				//$result = json_decode($result);
+				//if ($result->result == 'error') {
+				//	$msg = $result->message;
+				//} else {
 					$user = User::model()->findByPk(Yii::app()->user->userid);
 					$user->last_login_at = time();
 					$user->last_login_ip = Yii::app()->request->userHostAddress;
@@ -149,7 +149,7 @@ class SiteController extends AdminBaseController
 					}else{
 						$this->redirect(Yii::app()->user->returnUrl);
 					}
-				}
+				//}
 			}
 		}else if($_REQUEST['is_another']=='yes'){
 			$model->attributes=$_GET;
@@ -159,17 +159,17 @@ class SiteController extends AdminBaseController
 				setcookie ( "username" );
 			}
 			if($model->validate() && $model->login()){
-				$api_center = new api_center();
+				/*$api_center = new api_center();
 				$result = $api_center->loginAuthorization($model->username, $model->password);
 				$result = json_decode($result);
 				if ($result->result == 'error') {
 					$msg = $result->message;
-				} else {
+				} else {*/
 					$user = User::model()->findByPk(Yii::app()->user->userid);
 					$user->last_login_at = time();
 					$user->last_login_ip = Yii::app()->request->userHostAddress;
 					$user->update();
-				}
+				// }
 			}
 			return;
 		}
