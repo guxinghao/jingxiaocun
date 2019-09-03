@@ -12,7 +12,7 @@ class MenuItem{
 	public static function getValideMenus()
 	{
 		$allMenus = MenuItem::getGlobalMenu();
-		
+
 		$_result = Array();
 		//一级菜单循环
 		foreach ($allMenus as $_menu) {
@@ -30,18 +30,18 @@ class MenuItem{
 	public function getValideSubMenus()
 	{
 		$_result = array();
-		
+
 		//二级菜单循环
 		foreach ($this->sub_menus as $_menu)
 		{
 			$_menu->getValideLastMenus();
 			if ($_menu->sub_menus)
-				$_result[] = $_menu;	
+				$_result[] = $_menu;
 		}
 		$this->sub_menus = $_result;
 	}
-	
-	
+
+
 	/**
 	 * 三级菜单
 	 * 获取当前菜单下，有权限的子菜单
@@ -49,7 +49,7 @@ class MenuItem{
 	public function getValideLastMenus(){
 		$temp = array();
 		foreach ($this->sub_menus as $_item){
-		
+
 			if ($_item->right_name != "" && !$this->getAuth($_item->right_name)){
 				continue;
 			}
@@ -57,11 +57,11 @@ class MenuItem{
 		}
 		$this->sub_menus = $_temp;
 	}
-	
+
 	public function getAuth($authitem){
 		$auth=Yii::app()->authManager;
 		$bool=$auth->checkAccess($authitem,Yii::app()->user->userid);
-			
+
 		return $bool;
 	}
 
@@ -70,7 +70,7 @@ class MenuItem{
 		global $g_menu ;
 		if ($g_menu ) return $g_menu;
 		$g_menu = array();
-		
+
 		//采购管理主菜单
 		$buyManager = new MenuItem;
 		$buyManager->name = "采购";
@@ -210,13 +210,13 @@ class MenuItem{
 			$stock5Manager->name = "仓库入库";
 			$stock5Manager->right_name = "仓库入库";
 			$stock5Manager->url=Yii::app()->createUrl("input/pushedList");
-			
+
 			//仓库入库
 			$stock5Manager = new MenuItem;
 			$stock5Manager->name = "仓库入库";
 			$stock5Manager->right_name = "仓库入库";
 			$stock5Manager->url=Yii::app()->createUrl("input/pushedList");
-			
+
 			//代销入库
 			$stock6Manager = new MenuItem;
 			$stock6Manager->name = "代销入库";
@@ -246,22 +246,22 @@ class MenuItem{
 			$stock12Manager->name = "库存转库";
 			$stock12Manager->right_name = "库存转库";
 			$stock12Manager->url=Yii::app()->createUrl("#");
-			
+
 			$stock13Manager = new MenuItem;
 			$stock13Manager->name = "库存查询";
 			$stock13Manager->right_name = "库存查询";
 			$stock13Manager->url=Yii::app()->createUrl("storage/search");
-			
+
 			$stock14Manager = new MenuItem;
 			$stock14Manager->name = "卡号管理";
 			$stock14Manager->right_name = "卡号管理";
 			$stock14Manager->url=Yii::app()->createUrl("storage/index");
-			
+
 			$stock15Manager = new MenuItem;
 			$stock15Manager->name = "异常列表";
 			$stock15Manager->right_name = "异常列表";
-			$stock15Manager->url=Yii::app()->createUrl("interface/failList");			
-			
+			$stock15Manager->url=Yii::app()->createUrl("interface/failList");
+
 			$stock16Manager = new MenuItem;
 			$stock16Manager->name = "自动出库";
 			$stock16Manager->right_name = "自动出库";
@@ -338,20 +338,20 @@ class MenuItem{
 			$finance11Manager->name = "已忽略凭证";
 			$finance11Manager->right_name = "已忽略凭证";
 			$finance11Manager->url = Yii::app()->createUrl("voucher/ignoreList");
-			
+
 			//板卷付款
 			$finance12Manager = new MenuItem;
 			$finance12Manager->name = "板卷付款";
 			$finance12Manager->right_name = "板卷付款";
 			$finance12Manager->url = Yii::app()->params['parallel_url']."/index.php/formBill/index?type=FKDJ";
-			
+
 			//板卷收款
 			$finance13Manager = new MenuItem;
 			$finance13Manager->name = "板卷收款";
 			$finance13Manager->right_name = "板卷收款";
 			$finance13Manager->url = Yii::app()->params['parallel_url']."/index.php/formBill/index?type=SKDJ";
-			
-			
+
+
 		//价格管理
 		$priceManager = new MenuItem;
 		$priceManager->name = "价格";
@@ -550,7 +550,7 @@ class MenuItem{
 			$from28Manager->name = "销售排行:优";
 			$from28Manager->right_name = "销售排行:优";
 			$from28Manager->url=Yii::app()->createUrl("table/newSalesRank");
-			
+
 		//设置
 		$setManager = new MenuItem;
 		$setManager->name = "设置";
@@ -617,14 +617,14 @@ class MenuItem{
 			$set11Manager->name = "结算联系人";
 			$set11Manager->right_name = "结算联系人";
 			$set11Manager->url=Yii::app()->createUrl("companyContact/index");
-			
+
 			//区域管理
 			$set12Manager = new MenuItem;
 			$set12Manager->name = "区域管理";
 			$set12Manager->right_name = "区域管理";
 			$set12Manager->url=Yii::app()->createUrl("area/index");
-			
-			
+
+
 		//系统管理
 		$systemManager = new MenuItem;
 		$systemManager->name = "系统";
@@ -670,30 +670,30 @@ class MenuItem{
 			$system5Manager = new MenuItem;
 			$system5Manager->name = "修改密码";
 			$system5Manager->right_name = "修改密码";
-			$system5Manager->url = Yii::app()->params["api_url"]."/index.php/users/changepwd";
-			
+			$system5Manager->url = Yii::app()->params["api_url"]."/index.php/users/changePwd";
+
 			//微信用户管理
 			$system6Manager = new MenuItem;
 			$system6Manager->name = "微信客户";
 			$system6Manager->right_name = "微信客户";
 			$system6Manager->url=Yii::app()->createUrl("wxUser/index");
-			
+
 		//采购单-----------------------------------------------------------------
 			$mid1Manager = new MenuItem;
 			$mid1Manager->name = "单";
 			$mid1Manager->right_name = "middle";
 			$mid1Manager->url="#";
-			
+
 			$mid2Manager = new MenuItem;
 			$mid2Manager->name = "货";
 			$mid2Manager->right_name = "middle";
 			$mid2Manager->url="#";
-			
+
 			$mid3Manager = new MenuItem;
 			$mid3Manager->name = "款";
 			$mid3Manager->right_name = "middle";
 			$mid3Manager->url="#";
-			
+
 			$mid4Manager = new MenuItem;
 			$mid4Manager->name = "票";
 			$mid4Manager->right_name = "middle";
@@ -714,36 +714,36 @@ class MenuItem{
 			$mid2Manager->sub_menus[] = $stock5Manager;//仓库入库
 			//款
 			$mid3Manager->sub_menus[] = $finance1Manager;//付款登记
-			
+
 			//票
 			$mid4Manager->sub_menus[] = $finance5Manager;//采购销票
-			
+
 			$buyManager->sub_menus[] = $mid1Manager;
 			$buyManager->sub_menus[] = $mid2Manager;
 			$buyManager->sub_menus[] = $mid3Manager;
 			$buyManager->sub_menus[] = $mid4Manager;
-			
+
 		//销售-------------------------------------------
 			$mid1Manager = new MenuItem;
 			$mid1Manager->name = "单";
 			$mid1Manager->right_name = "middle";
 			$mid1Manager->url="#";
-				
+
 			$mid2Manager = new MenuItem;
 			$mid2Manager->name = "货";
 			$mid2Manager->right_name = "middle";
 			$mid2Manager->url="#";
-				
+
 			$mid3Manager = new MenuItem;
 			$mid3Manager->name = "款";
 			$mid3Manager->right_name = "middle";
 			$mid3Manager->url="#";
-				
+
 			$mid4Manager = new MenuItem;
 			$mid4Manager->name = "票";
 			$mid4Manager->right_name = "middle";
 			$mid4Manager->url="#";
-			
+
 			//单
 			$mid1Manager->sub_menus[] = $shop1Manager;//销售单
 			$mid1Manager->sub_menus[] = $shop7Manager;//申请记录
@@ -759,33 +759,33 @@ class MenuItem{
 			$mid3Manager->sub_menus[] = $shop4Manager;//高开折让
 			//票
 			$mid4Manager->sub_menus[] = $finance6Manager;//销售开票
-			
+
 			$shopManager->sub_menus[] = $mid1Manager;
 			$shopManager->sub_menus[] = $mid2Manager;
 			$shopManager->sub_menus[] = $mid3Manager;
 			$shopManager->sub_menus[] = $mid4Manager;
-			
+
 			//库存-----------------------------------------------
 			$mid1Manager = new MenuItem;
 			$mid1Manager->name = "库存";
 			$mid1Manager->right_name = "middle";
 			$mid1Manager->url="#";
-			
+
 			$mid2Manager = new MenuItem;
 			$mid2Manager->name = "出库";
 			$mid2Manager->right_name = "middle";
 			$mid2Manager->url="#";
-			
+
 			$mid3Manager = new MenuItem;
 			$mid3Manager->name = "入库";
 			$mid3Manager->right_name = "middle";
 			$mid3Manager->url="#";
-			
+
 			$mid4Manager = new MenuItem;
 			$mid4Manager->name = "托盘";
 			$mid4Manager->right_name = "middle";
 			$mid4Manager->url="#";
-			
+
 			//库存
 			$mid1Manager->sub_menus[] = $stock0Manager;//库存管理
 			$mid1Manager->sub_menus[] = $stock8Manager;//代销库存
@@ -794,24 +794,24 @@ class MenuItem{
 			$mid1Manager->sub_menus[] = $stock13Manager;//库存查询
 			$mid1Manager->sub_menus[] = $stock14Manager;//卡号管理
 			$mid1Manager->sub_menus[] = $stock15Manager;//异常列表
-			
+
 			$mid2Manager->sub_menus[] = $stock1Manager;//出库管理
 			$mid2Manager->sub_menus[] = $stock11Manager;//库存调拨
 			$mid2Manager->sub_menus[] = $stock16Manager;//自动出库
-			
+
 			$mid3Manager->sub_menus[] = $stock4Manager;//入库管理
 			$mid3Manager->sub_menus[] = $stock6Manager;//代销入库
 			$mid3Manager->sub_menus[] = $stock7Manager;//船舱入库
 			$mid3Manager->sub_menus[] = $stock5Manager;//仓库入库
-			
+
 			$mid4Manager->sub_menus[] = $buy3Manager;//托盘管理
 			$mid4Manager->sub_menus[] = $buy4Manager;//托盘赎回
-			
+
 			$stockManager->sub_menus[] = $mid1Manager;
 			$stockManager->sub_menus[] = $mid2Manager;
 			$stockManager->sub_menus[] = $mid3Manager;
 			$stockManager->sub_menus[] = $mid4Manager;
-			
+
 			$mid2Manager = new MenuItem;
 			$mid2Manager->name = "全部";
 			$mid2Manager->right_name = "middle";
@@ -823,18 +823,18 @@ class MenuItem{
 			$mid2Manager->sub_menus[] = $stock2Manager;//仓库出库
 			$mid2Manager->sub_menus[] = $whouse1Manager;//接口异常
 // 			$whouseManager->sub_menus[] = $mid2Manager;
-			
+
 			//财务-----------------------------------------------
 			$mid1Manager = new MenuItem;
 			$mid1Manager->name = "款";
 			$mid1Manager->right_name = "middle";
 			$mid1Manager->url="#";
-			
+
 			$mid2Manager = new MenuItem;
 			$mid2Manager->name = "票";
 			$mid2Manager->right_name = "middle";
 			$mid2Manager->url="#";
-			
+
 			$mid3Manager = new MenuItem;
 			$mid3Manager->name = "其他";
 			$mid3Manager->right_name = "middle";
@@ -855,51 +855,51 @@ class MenuItem{
 			$mid3Manager->sub_menus[] = $finance8Manager;//银行互转
 			$mid3Manager->sub_menus[] = $finance9Manager;//凭证列表
 			$mid3Manager->sub_menus[] = $finance11Manager;//已忽略凭证
-			
+
 			$financeManager->sub_menus[] = $mid1Manager;
 			$financeManager->sub_menus[] = $mid2Manager;
 			$financeManager->sub_menus[] = $mid3Manager;
-			
+
 			//价格管理------------------------------------------------
 			$mid5Manager = new MenuItem;
 			$mid5Manager->name = "销售";
 			$mid5Manager->right_name = "middle";
 			$mid5Manager->url="#";
-			
+
 			$mid6Manager = new MenuItem;
 			$mid6Manager->name = "采购";
 			$mid6Manager->right_name = "middle";
 			$mid6Manager->url="#";
-			
+
 			$mid5Manager->sub_menus[] = $price1Manager;//当日指导价
 			$mid5Manager->sub_menus[] = $price2Manager;//指导价管理
 			$mid5Manager->sub_menus[] = $price3Manager;//历史指导价
 			$mid5Manager->sub_menus[] = $price8Manager;//专区管理
-			
+
 // 			$mid6Manager->sub_menus[] = $price4Manager;//当日采购价
 			$mid6Manager->sub_menus[] = $price5Manager;//采购价管理
 			$mid6Manager->sub_menus[] = $price6Manager;//历史采购价
 			$mid6Manager->sub_menus[] = $price7Manager;//基价差管理
-			
+
 			$priceManager->sub_menus[] = $mid5Manager;
 			$priceManager->sub_menus[] = $mid6Manager;
-			
+
 			//报表管理主菜单----------------------------------------------
 			$mid1Manager = new MenuItem;
 			$mid1Manager->name = "管理";
 			$mid1Manager->right_name = "middle";
 			$mid1Manager->url="#";
-			
+
 			$mid2Manager = new MenuItem;
 			$mid2Manager->name = "采/库";
 			$mid2Manager->right_name = "middle";
 			$mid2Manager->url="#";
-			
+
 			$mid3Manager = new MenuItem;
 			$mid3Manager->name = "销售";
 			$mid3Manager->right_name = "middle";
 			$mid3Manager->url="#";
-			
+
 			$mid4Manager = new MenuItem;
 			$mid4Manager->name = "款/票";
 			$mid4Manager->right_name = "middle";
@@ -908,7 +908,7 @@ class MenuItem{
 			$mid1Manager->sub_menus[] = $from1Manager;//利润统计
 			$mid1Manager->sub_menus[] = $from2Manager;//采销利润明细
 			$mid1Manager->sub_menus[] = $from3Manager;//库存预估利润明细
-			
+
 			//采购/库存
 			$mid2Manager->sub_menus[] = $from17Manager;//合同报表
 			$mid2Manager->sub_menus[] = $from8Manager;//采购汇总
@@ -936,14 +936,14 @@ class MenuItem{
 			$mid4Manager->sub_menus[] = $from22Manager;//托盘统计
 			$mid4Manager->sub_menus[] = $from24Manager;//采购汇总
 			$mid4Manager->sub_menus[] = $from25Manager;//销售汇总
-			
-			
-			
+
+
+
 			$fromManager->sub_menus[] = $mid1Manager;
 			$fromManager->sub_menus[] = $mid2Manager;
 			$fromManager->sub_menus[] = $mid3Manager;
 			$fromManager->sub_menus[] = $mid4Manager;
-			
+
 		//设置---------------------------------------------
 			$mid5Manager = new MenuItem;
 			$mid5Manager->name = "公司";
@@ -961,13 +961,13 @@ class MenuItem{
 			$mid5Manager->sub_menus[] = $set11Manager;//联系人
 			$mid5Manager->sub_menus[] = $set7Manager;//仓库管理
 			$mid5Manager->sub_menus[] = $set12Manager;//区域管理
-			
+
 			$mid6Manager->sub_menus[] = $set2Manager;//产地管理
 			$mid6Manager->sub_menus[] = $set3Manager;//品名管理
 			$mid6Manager->sub_menus[] = $set4Manager;//材质管理
 			$mid6Manager->sub_menus[] = $set5Manager;//规格管理
 			$mid6Manager->sub_menus[] = $set6Manager;//件重管理
-			
+
 			$setManager->sub_menus[] = $mid5Manager;
 			$setManager->sub_menus[] = $mid6Manager;
 		//系统管理-----------------------------------------------
@@ -975,7 +975,7 @@ class MenuItem{
 			$mid5Manager->name = "全部";
 			$mid5Manager->right_name = "middle";
 			$mid5Manager->url="#";
-			
+
 			$mid5Manager->sub_menus[] = $operationManager;//操作管理
 			$mid5Manager->sub_menus[] = $taskManager;//任务管理
 			$mid5Manager->sub_menus[] = $roleManager;//角色管理
@@ -985,10 +985,10 @@ class MenuItem{
 			$mid5Manager->sub_menus[] = $system4Manager; //参数配置
 			$mid5Manager->sub_menus[] = $system5Manager; //修改密码
 			$mid5Manager->sub_menus[] = $system6Manager; //微信客户
-			
+
 			$systemManager->sub_menus[] = $mid5Manager;
-			
+
 		return $g_menu;
-	
+
 	}
 }
