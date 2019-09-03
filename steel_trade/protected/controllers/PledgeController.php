@@ -328,7 +328,6 @@ class PledgeController extends AdminBaseController
 		{
 			$search=$_REQUEST['search'];
 		}
-		var_dump(FrmPledgeRedeem::gatherData($search));die();
 		//获取表单列表
 		list($tableHeader,$tableData,$pages)=FrmPledgeRedeem::gatherData($search);
 
