@@ -35,7 +35,7 @@
 	}
 	.message_line_name{float:left;text-align:center;color:#000;width:45%;}
 	.message_line_num{float:left;text-align:left;min-width:30px;color:#fff;border-radius:15px;margin:6px 0 6px 3px;;line-height:18px;padding:0 4px;text-align:center;}
-	.second_bar_6{top:-41px!important;}
+	.second_bar_6{top:0px!important;}
 </style>
 <?php
 	header("Cache-control: private");
