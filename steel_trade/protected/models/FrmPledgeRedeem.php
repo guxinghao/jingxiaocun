@@ -691,36 +691,36 @@ error_reporting(E_ALL | E_STRICT);
 		return array($tableHeader,$tableData,$pages);
 	}
 
-	// /**
-	//  * 托盘利息均摊
-	//  * @param integer $id
-	//  * @param string $type
-	//  * 均摊利息 = （托盘利息 + 托盘金额 × 剩余重量 / 总重 × 利率 × 天数） / 总重 //有赎回记录
-	//  * 					利率 × 天数 × 托盘金额 / 总重 //无赎回记录
-	//  * 托盘利息 = 所有托盘利息
-	//  * 剩余重量 = 总重 - 所有赎回重量
-	//  */
-	// public static function shareEqually($id, $type = '')
-	// {
-	// 	$form = new Pledge($id);
-	// 	if ($form->commonForm->form_status != 'approve') return ;
+	/**
+	 * 托盘利息均摊
+	 * @param integer $id
+	 * @param string $type
+	 * 均摊利息 = （托盘利息 + 托盘金额 × 剩余重量 / 总重 × 利率 × 天数） / 总重 //有赎回记录
+	 * 					利率 × 天数 × 托盘金额 / 总重 //无赎回记录
+	 * 托盘利息 = 所有托盘利息
+	 * 剩余重量 = 总重 - 所有赎回重量
+	 */
+	public static function shareEqually($id, $type = '')
+	{
+		$form = new Pledge($id);
+		if ($form->commonForm->form_status != 'approve') return ;
 
-	// 	$pledge = $form->mainInfo; //赎回记录
-	// 	$purchase = $pledge->purchase; //采购单
-	// 	$pledgeInfo = $pledge->pledgeInfo; //托盘信息
+		$pledge = $form->mainInfo; //赎回记录
+		$purchase = $pledge->purchase; //采购单
+		$pledgeInfo = $pledge->pledgeInfo; //托盘信息
 
-	// 	$pledge_rate = floatval($pledgeInfo->pledge_rate) / 1000;//利率
-	// 	$pledge_length = intval($pledgeInfo->pledge_length); //天数
-	// 	$total_weight = floatval($purchase->weight_confirm_status == 1 ? $purchase->confirm_weight : $purchase->weight); //总重
+		$pledge_rate = floatval($pledgeInfo->pledge_rate) / 1000;//利率
+		$pledge_length = intval($pledgeInfo->pledge_length); //天数
+		$total_weight = floatval($purchase->weight_confirm_status == 1 ? $purchase->confirm_weight : $purchase->weight); //总重
 
-	// 	$pledge_weight = floatval($pledge->weight); //赎回重量
-	// 	$pledge_fee = floatval($pledge->pledgeInfo->fee);//托盘总金额
-	// 	$interest_fee = floatval($pledge->interest_fee);//托盘利息
+		$pledge_weight = floatval($pledge->weight); //赎回重量
+		$pledge_fee = floatval($pledge->pledgeInfo->fee);//托盘总金额
+		$interest_fee = floatval($pledge->interest_fee);//托盘利息
 
-	// 	if ($total_weight == 0) continue;
-	// 	$purchase->pledge_rate = ($interest_fee + $pledge_fee * $pledge_rate * $pledge_length * ($total_weight - $pledge_weight) / $total_weight) / $total_weight;
-	// 	$purchase->update();
-	// 	ProfitChange::createNew('purchase',$purchase->baseform->id,1);
-	// }
+		if ($total_weight == 0) continue;
+		$purchase->pledge_rate = ($interest_fee + $pledge_fee * $pledge_rate * $pledge_length * ($total_weight - $pledge_weight) / $total_weight) / $total_weight;
+		$purchase->update();
+		ProfitChange::createNew('purchase',$purchase->baseform->id,1);
+	}
 
 }
