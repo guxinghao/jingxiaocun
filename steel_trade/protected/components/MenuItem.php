@@ -670,7 +670,7 @@ class MenuItem{
 			$system5Manager = new MenuItem;
 			$system5Manager->name = "修改密码";
 			$system5Manager->right_name = "修改密码";
-			$system5Manager->url = Yii::app()->params["api_url"]."/index.php/users/changePwd";
+			$system5Manager->url = Yii::app()->params["api_url"]."/index.php/changePwd";
 
 			//微信用户管理
 			$system6Manager = new MenuItem;
