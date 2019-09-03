@@ -1,0 +1,1 @@
+<img src="/images/index_bg.png" style="padding-top:10%;width:100%;margin:0 auto"/>

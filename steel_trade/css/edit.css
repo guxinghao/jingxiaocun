@@ -1,0 +1,25 @@
+@CHARSET "UTF-8";
+
+body{ background-color: #f2f2f2; font-family: '微软雅黑'; font-size: 14px; font-weight: normal;}
+table thead tr th{ background: none; color: #999; padding-left: 10px;}
+.div_table table td, th{ border: none; text-align: left;}
+.detail_table tr td{ height: 52px; line-height: 52px; border: none; text-align: left; padding-left: 10px; vertical-align: top;}
+.detail_table i{ font-size: 19px;}
+.detail_table tbody .form-control{ width: 140px; margin: 11px 0;}
+.deleted_tr{ line-height: 52px; cursor: pointer;}
+
+.edit_body{ width: 98%; margin: 10px 1%;}
+.main_body{ float: left; width: 100%; margin-bottom: 10px; padding-top: 10px; background-color: #fff;}
+
+.detail_body{ float: left; width: 100%; margin-bottom: 10px; padding: 10px 1%; background-color: #fff;}
+.detail_body .btn_add{ float: left; width: 86px; height: 24px; border: none; font-size: 14px; color: #fff; background: url("/images/btn_add.png") no-repeat center;}
+.detail_body .detail_table{ float: left; width: 96%; margin: 10px 0; padding: 0 2%; border: 1px solid #e4e4e4;}
+.detail_table table{ width: 100%;}
+#cght_tb tr{ border-bottom: 1px solid #e4e4e4;}
+#cght_tb tbody td:first-child{ text-indent: 10px;}
+#cght_tb tbody tr:last-child{ border-bottom: none;}
+#cght_tb tbody select{ }
+
+.btn_list button.first{ margin-left: 0;}
+.detail_table tr td.text-right{ text-align: right;}
+.detail_table tr td .fa_droplist{ margin-top: 11px;}

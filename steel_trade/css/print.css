@@ -1,0 +1,46 @@
+@charset "utf-8";
+/* CSS Document */
+
+html, body, div, ul, ol, li, span, font, h1, h2, h3{ margin: 0; padding: 0; border: none; font-size: 13px; font-weight: normal; text-align: justify;}
+ul,ol,li{ list-style: none;}
+
+.print_body{ float: left; width: 775px; margin-left: -20px;}
+.print_head{ float: left; width: 100%;}
+.print_main{ float: left; width: 100%;}
+.print_foot{ float: left; width: 100%;}
+
+.form_no{ float: right; width: 170px; height: 28px; margin-top: 8px; line-height: 26px; font-size: 16px;}
+.created_date{ float: left; width: 360px; height: 23px; line-height: 23px; text-indent: 80px;}
+.valid{ float: right; width: 33px; height: 23px; line-height: 23px;}
+
+.print_row{ float: left; width: 100%;}
+.print_row li{ float: left; height: 23px; line-height: 23px;}
+.list li{ text-align: center;}
+
+/*--------------------------------------------- 报价单 ------------------------------------------*/
+.print_body.quoted{ width: 708px; margin-top: 30px; margin-left: 20px; }
+
+.quoted .title{ height: 27px; line-height: 27px; font-size: 20px; text-align: center; }
+.quoted .sub_title{ display: block; width: 700px; height: 18px; line-height: 18px; font-size: 12px; text-align: right; padding-right: 6px; }
+
+.quoted .banner{ height: 27px; line-height: 27px; font-size: 12px; text-align: center; }
+.quoted .banner font{ font-size: 12px; }
+.quoted .prompt, 
+.quoted .address, 
+.quoted .contact_phone, 
+.quoted .contacts{ display: block; width: 706px; height: 27px; line-height: 27px; font-size: 14px; text-align: center; }
+
+.area_title li{ width: 706px; height: 20px; line-height: 20px; font-size: 16px; text-align: center; }
+.area_item li{ width: 100px; height: 18px; line-height: 18px; font-size: 14px; text-align: center; }
+
+.quoted .title{ border: 1px solid; }
+.quoted .sub_title{ border: solid; border-width: 0 1px 1px 1px; }
+.area_title li, .area_item li{ border: solid; border-width: 0 1px 1px 0;}
+.area_title li:first-child{ border-left-width: 1px; }
+.area_item li:first-child{ border-left-width: 1px; }
+
+.quoted .banner{ border: solid; border-width: 0 1px 1px 1px; }
+.quoted .prompt, 
+.quoted .address, 
+.quoted .contact_phone, 
+.quoted .contacts{ border: solid; border-width: 0 1px 1px 1px; }

@@ -1,0 +1,20 @@
+@CHARSET "UTF-8";
+.msg_head{width:98%;float:left;margin-left:1%;border-bottom:1px solid #b2b2b2;height:35px;margin-top:10px}
+.msg_head_title{float:left;height:100%;line-height:35px;font-size:18px;}
+.msg_head_btns,.msg_item_btns{float:right;color:#1eabf2;font-size:14px;line-height:40px}
+.msg_head_btns span,.msg_item_btns span{float:left;margin-left:10px;}
+.msg_head_sp,.msg_item_sp{float:left;width:1px;height:10px;background:#777;margin-top:16px;margin-left:10px}
+.msg_list{width:98%;margin-left:1%;margin-top:10px;float:left}
+.msg_item{width:100%;border-bottom:1px dashed #b2b2b2;margin-bottom:14px;float:left}
+.msg_item_left{float:left;width:50px;height:100%;}
+.msg_item_right{float:left;width:100%;margin-left:60px;margin-top:-60px;}
+.msg_item_content,.msg_item_top{float:left;width:100%}
+.msg_item_foot{float:left;margin-left:0;margin-right:0;width:100%;}
+.msg_item_content{font-size:14px;line-height:18px;color:#666;margin-right:60px}
+.msg_item_title{float:left;font-size:14px;line-height:35px;}
+.msg_item_date{float:right;font-size:14px;line-height:35px;color:#999;margin-right:60px}
+.msg_item_type{float:left;font-size:14px;line-height:35px;color:#999}
+.msg_item_btns{margin-right:60px}
+
+.all_read,.all_del,.read_this,.del_this,.unread_this{cursor:pointer}
+.read_this{color:#d7d7d8;}

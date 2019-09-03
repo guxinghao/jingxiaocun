@@ -1,0 +1,152 @@
+@CHARSET "UTF-8";
+
+body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, code, del, dfn, em, img, q, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, dialog, figure, footer, header, hgroup, nav, section 
+{ border: 0 none; font: inherit; margin: 0; padding: 0; vertical-align: baseline;}
+body{ margin: 0; padding: 0; color: #555; font: normal 10pt Arial,Helvetica,sans-serif; background: #fff;}
+ul, ol, li{ list-style: none;}
+
+
+#icaption{ float: left; width: 1000px; min-height: 25px; margin: 0 10px 10px;  padding: 10px; background: #fbfbfb;border: 1px dotted #cdcdcd;}
+#icaption #title{ float: left; display: inline; font-size: 23px; color: #0b55c4;}
+#icaption #btn_add{width:32px; height:32px; background:url(/images/admin/btn_add_b.png) no-repeat !important; cursor:pointer; float:right; background-image:none; filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=image, src=images/admin/btn_add_b.png);}
+
+#isearch{ float: left; width: 980px; margin: 0 30px;}
+#isearch .input_row{ float: left; height: 38px; line-height: 38px;}
+#isearch .input_row div{ float: left; margin-left: 5px;}
+#isearch .input_row div.search_span{ margin-left: 15px;}
+#isearch input{ height: 18px; margin: 6px 0;}
+#isearch input[type='submit'],#isearch input[type='reset']{ float: left; height: 26px; line-height: 18px; margin-left: 5px; cursor: pointer;}
+
+
+/*	---------------------------------- Table ----------------------------------*/
+#itable{ float: left; width: 980px; margin: 0 30px; } /* 950px */
+#itable table, #itable table td, #itable table th{ border-style: solid; border-color: #ccc;}
+#itable table{ width: 100%; border-width: 1px 0 0 1px;}
+#itable table td{ line-height: 32px; border-width: 0 1px 1px 0; text-indent: 5px;}
+#itable table th{ line-height: 32px; border-width: 0 1px 1px 0;}
+#itable table td.operate{ text-align: center;}
+.priority{ width: 30px;}
+.tr4 {height: 28px;text-align: left;font-size: 12px;line-height: 20px;background: #ffffff;}
+.td1 {width: 85px;text-align: left; text-indent: 24px;}
+
+/*	---------------------------------- Page ----------------------------------*/
+/*.page{ float: right;}
+.paginate_left{ float: left;}
+.paginate_right{ float: right; height: 37px; line-height: 37px; margin-right: 10px;}
+.paginate_right .wz{ float: left; margin: 0 3px;}
+.firstpage, .prevpage, .nextpage, .lastpage{ float: left; margin: 6px 0;}
+.paginate_right .paginate_sel{ float: left;}
+*/
+.search_btn{ height: 30px; color: #555;}
+
+.clear{clear:both}
+.board_back{
+	background:#edeef2;
+	padding:10px 1.2% 0;
+	width:100%;
+	min-height:740px;
+}
+.data_statistics{
+	clear:both;
+	width:100%;
+	margin:0 auto;	
+}
+.statistics_each{
+	float:left;
+	width:32.6%;
+	background:#fff;	
+	border-bottom:2px solid #d5d6d9;
+}
+.statistics_margin{
+	margin-left:1.1%;	
+}
+.statistics_each_left{
+	float:left;
+	margin:14px;
+}
+.statistics_each_right{
+	padding:14px 0;	
+	line-height:32px;
+	font-size:28px;
+}
+.statistics_each_title{
+	font-size:18px;
+	color:#8c8c8c;
+}
+.color_l{
+	color:#ff8862;
+}
+.color_m{
+	color:#65b7f1;
+}
+.color_r{
+	color:#a48ad3;'
+}
+.money_identifier{
+	font-size:18px;
+}
+.data_detail{
+	width:100%;
+	margin-top:10px;
+}
+.data_detail_each{
+	width:49.5%;
+	float:left;
+	background:#fff;
+	color:#666666;
+	font-size:14px;
+}
+.detail_each_title{
+	font-size:16px;
+	font-family:微软雅黑;
+	color:#000;	
+	width:100%;
+	line-height:45px;
+	padding:0 10px;
+	border-bottom:1px solid #e1e1e1;
+}
+.detail_margin{
+	margin-left:1%;
+}
+.float_left{
+	float:left;
+}
+.float_right{
+	float:right;
+}
+.detail_little_title{
+	background:#f0f0f0;
+	width:98%;
+	margin:0 auto;
+	line-height:30px;
+	clear:both;
+	margin-top:10px;
+	padding:0 6px;
+	color:#000;
+}
+.font_left_blank{
+	width:95px;
+	display: inline-block;
+}
+.more_data_container{
+	padding:10px 0 0;
+	clear:both;
+}
+.more_data_out{
+	float:left;
+	width:48%;
+	margin-left:2%;
+}
+
+.more_data{
+	width:100%;
+	float:left;	
+	line-height:30px;
+}
+.horizontal_separate{
+	height:1px;
+	border-bottom:1px solid #f1f2f6;
+	margin:6px 0 -4px;
+}
+
+
